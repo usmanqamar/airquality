@@ -1,6 +1,5 @@
 ## Air quality assignment
 
-##Framework
 ###Server
 Chose to do it in NestJS. Although this is very small assignment but just assumed that work wil be part of large application so NestJS is suited for RAD and is modern upto date framework
 ###Database
