@@ -1,9 +1,9 @@
 ## Air quality assignment
 
-##Framework
-##Server
+## Framework
+### Server
 Chose to do it in NestJS. Although this is very small assignment but just assumed that work wil be part of large application so NestJS is suited for RAD and is modern upto date framework
-###Database
+### Database
 Chose MongoDB, again for the said reason above.
 
 ## Installation
@@ -19,10 +19,10 @@ $ npm i
 ## Env variables (.env)
 Although env shouldn't be part of code but just committing it for the sake of simplicity of your checking
 
-####PORT
+#### PORT
 By default port is set to 3030. you can update as per your choice
 
-####MONGO_CONNECTION
+#### MONGO_CONNECTION
 Provided already cloud mongodb connection string here. You won't need to update it ideally
 
 ## Running the app
