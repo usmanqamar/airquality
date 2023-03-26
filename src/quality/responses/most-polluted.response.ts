@@ -6,7 +6,7 @@ export class MostPollutedResponse {
   aqius: number;
 
   constructor(data: MostPollutedResponse) {
-    this.createAt = data.createAt;
-    this.aqius = data.aqius;
+    this.createAt = data?.createAt;
+    this.aqius = data?.aqius;
   }
 }

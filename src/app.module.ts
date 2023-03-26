@@ -5,7 +5,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import mongoose from 'mongoose';
 import { ScheduleModule } from '@nestjs/schedule';
 
-//mongoose.set('debug', true);
+mongoose.set('debug', true);
 @Module({
   imports: [
     QualityModule,
