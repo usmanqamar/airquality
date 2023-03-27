@@ -84,9 +84,33 @@ describe('Quality Controller (e2e)', () => {
 
     return request(app.getHttpServer())
       .get('/quality/Paris/most-polluted')
+      .expect(HttpStatusCode.Ok);
+  });
+
+  it('/quality/:city/most-polluted (GET) should return empty if city other than Paris', async () => {
+    // Add sample data which cron will add
+    const sampleData = new QualityDto();
+    sampleData.ts = new Date().toISOString();
+    sampleData.aqius = 10;
+    sampleData.aqicn = 10;
+    sampleData.maincn = 'o3';
+    sampleData.mainus = 'o3';
+    // Return mock data for http service
+    mockedHttpService.get.mockImplementation(() =>
+      of({ data: { data: { current: { pollution: sampleData } } } }),
+    );
+    qualityService = app.get<QualityService>(QualityService);
+    await qualityService.saveAirQualityByCountry({
+      latitude: '48.856613',
+      longitude: '2.352222',
+      city: 'Paris',
+    });
+
+    return request(app.getHttpServer())
+      .get('/quality/Paris2/most-polluted')
       .expect(HttpStatusCode.Ok)
       .then((res) => {
-        expect(res.body.aqius).toEqual(10);
+        expect(res.body).toEqual({});
       });
   });
 });
